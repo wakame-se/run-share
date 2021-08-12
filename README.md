@@ -22,7 +22,7 @@
 
 | Column   | Type       | Options                        |
 | -------- | ---------- | ------------------------------ |
-| map_text | text       | ------------------------------ |
+| map_text | text       | null: false                    |
 | distance | integer    | null: false                    |
 | text     | text       | null: false                    |
 | user     | references | null: false, foreign_key: true |
