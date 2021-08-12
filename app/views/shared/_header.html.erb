@@ -2,7 +2,8 @@
 <header class='top-page-header'>
   <div class='nav'>
     <p class="fa">
-      <i class="fas fa-running fa-fw fa-flip-horizontal"></i>Run Share
+      <i class="fas fa-running fa-fw fa-flip-horizontal"></i>
+      <%= link_to "RunShare", root_path, class: "logo-name" %>
     </p>
     <ul class='lists-right'>
       <% if user_signed_in? %>
