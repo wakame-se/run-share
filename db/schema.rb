@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2021_08_12_090844) do
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "map_text", null: false
+    t.text "map_link", null: false
     t.integer "distance", null: false
     t.text "text", null: false
     t.bigint "user_id", null: false
