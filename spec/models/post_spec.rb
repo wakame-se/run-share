@@ -22,7 +22,7 @@ RSpec.describe Post, type: :model do
       it 'map_linkはhttpもしくはhttpsで始まるURLでしか登録できないこと' do
         @post.map_link = 'www.google.com'
         @post.valid?
-        expect(@post.errors.full_messages).to include("Map link is invalid. Input URL.")
+        expect(@post.errors.full_messages).to include('Map link is invalid. Input URL.')
       end
 
       it 'distanceが空では登録できないこと' do
