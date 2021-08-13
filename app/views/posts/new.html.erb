@@ -1,0 +1,62 @@
+<%= render "shared/header" %>
+
+<div class="new-map-contents">
+
+  <div class="new-map-main">
+    <h2 class="new-map-title">新規投稿</h2>
+    <%= form_with model: @post, local: true do |f| %>
+
+    <%= render 'shared/error_messages', model: f.object %>
+
+    <div class="new-posts">
+      <div class="weight-bold-text">
+        Map共有リンク
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_field :map_link, class:"map-text", id:"map-link", placeholder:"共有リンク", maxlength:"200" %>
+      <div class="distance-content">
+        <div class="weight-bold-text">
+          <span>距離</span>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.number_field :distance, class:"distance-input", id:"map-distance", placeholder:"例）5" %>
+        <span class="map-km">km</span>
+      </div>
+      <div class="map-comment">
+        <div class="weight-bold-text">
+          コメント
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :text, class:"map-text", id:"map-text", placeholder:"コメント" ,rows:"7" ,maxlength:"1000" %>
+      </div>
+    </div>
+
+    <div class="post-btn-contents">
+      <%= f.submit "投稿する", class: "new-post-btn" %>
+      <%= link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+
+    <div class="caution">
+      <p class="sentence">
+        <a href="#">禁止されている投稿、行為</a>
+        を必ずご確認ください。
+      </p>
+      <p class="sentence">
+        地図の投稿方法は共有リンク、または埋め込み方式のみとなります。
+      </p>
+      <p class="sentence">
+        投稿方法がわからない方は、
+        <a href="#">こちらのサイト</a>
+        にてご確認ください。
+      </p>
+      <p class="sentence">
+        投稿したことにより、
+        <a href="#">Googleマップの利用規約</a>
+        に同意したこととなります。
+      </p>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<%= render "shared/second-footer" %>
