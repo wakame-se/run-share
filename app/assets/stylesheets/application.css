@@ -33,7 +33,13 @@
 .weight-bold-text {
   font-weight: bold;
   min-width: 170px;
+  margin-top: 2vh;
   margin-bottom: 10px;
+}
+
+.radio-button-form {
+  display: flex;
+  flex-direction: column;
 }
 
 .select-box {

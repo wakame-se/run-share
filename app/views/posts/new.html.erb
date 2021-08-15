@@ -14,21 +14,147 @@
         <span class="indispensable">必須</span>
       </div>
       <%= f.text_field :map_link, class:"map-text", id:"map-link", placeholder:"共有リンク", maxlength:"200" %>
-      <div class="distance-content">
-        <div class="weight-bold-text">
-          <span>距離</span>
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.number_field :distance, class:"distance-input", id:"map-distance", placeholder:"例）5" %>
-        <span class="map-km">km</span>
+      <div class="weight-bold-text">
+        <span>距離</span>
+        <span class="indispensable">必須</span>
       </div>
-      <div class="map-comment">
-        <div class="weight-bold-text">
-          コメント
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.text_area :text, class:"map-text", id:"map-text", placeholder:"コメント" ,rows:"7" ,maxlength:"1000" %>
+      <%= f.number_field :distance, class:"distance-input", id:"map-distance", placeholder:"例）5" %>
+      <span class="map-km">km</span>
+      <div class="weight-bold-text">
+        山コース or 海コース
+        <span class="indispensable">必須</span>
       </div>
+      <div class="radio-button-form">
+        <div class="value1">
+          <%= f.radio_button :course, "ほぼ山" %>
+          <%= f.label :course, "ほぼ山", {value: "ほぼ山", style: "display: inline-block;"} %>
+        </div>
+        <div class="value2">
+          <%= f.radio_button :course, "やや山寄り" %>
+          <%= f.label :course, "やや山寄り", {value: "やや山寄り", style: "display: inline-block;"} %>
+        </div>
+        <div class="value3">
+          <%= f.radio_button :course, "どちらともいえない" %>
+          <%= f.label :course, "どちらともいえない", {value: "どちらともいえない", style: "display: inline-block;"} %>
+        </div>
+        <div class="value4">
+          <%= f.radio_button :course, "やや海、川寄り" %>
+          <%= f.label :course, "やや海、川寄り", {value: "やや海、川寄り", style: "display: inline-block;"} %>
+        </div>
+        <div class="value5">
+          <%= f.radio_button :course, "ほぼ海、川沿い" %>
+          <%= f.label :course, "ほぼ海、川沿い", {value: "ほぼ海、川沿い", style: "display: inline-block;"} %>
+        </div>
+      </div>
+      <div class="weight-bold-text">
+        坂の多さ
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="radio-button-form">
+        <div class="value1">
+          <%= f.radio_button :slope, "ほぼ坂" %>
+          <%= f.label :slope, "ほぼ坂", {value: "ほぼ坂", style: "display: inline-block;"} %>
+        </div>
+        <div class="value2">
+          <%= f.radio_button :slope, "やや坂多め" %>
+          <%= f.label :slope, "やや坂多め", {value: "やや坂多め", style: "display: inline-block;"} %>
+        </div>
+        <div class="value3">
+          <%= f.radio_button :slope, "どちらともいえない" %>
+          <%= f.label :slope, "どちらともいえない", {value: "どちらともいえない", style: "display: inline-block;"} %>
+        </div>
+        <div class="value4">
+          <%= f.radio_button :slope, "坂は少なめ" %>
+          <%= f.label :slope, "坂は少なめ", {value: "坂は少なめ", style: "display: inline-block;"} %>
+        </div>
+        <div class="value5">
+          <%= f.radio_button :slope, "ほぼ平坦" %>
+          <%= f.label :slope, "ほぼ平坦", {value: "ほぼ平坦", style: "display: inline-block;"} %>
+        </div>
+      </div>
+      <div class="weight-bold-text">
+        交通量
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="radio-button-form">
+        <div class="value1">
+          <%= f.radio_button :traffic, "多い" %>
+          <%= f.label :traffic, "多い", {value: "多い", style: "display: inline-block;"} %>
+        </div>
+        <div class="value2">
+          <%= f.radio_button :traffic, "やや多い" %>
+          <%= f.label :traffic, "やや多い", {value: "やや多い", style: "display: inline-block;"} %>
+        </div>
+        <div class="value3">
+          <%= f.radio_button :traffic, "どちらともいえない" %>
+          <%= f.label :traffic, "どちらともいえない", {value: "どちらともいえない", style: "display: inline-block;"} %>
+        </div>
+        <div class="value4">
+          <%= f.radio_button :traffic, "やや少ない" %>
+          <%= f.label :traffic, "やや少ない", {value: "やや少ない", style: "display: inline-block;"} %>
+        </div>
+        <div class="value5">
+          <%= f.radio_button :traffic, "少ない" %>
+          <%= f.label :traffic, "少ない", {value: "少ない", style: "display: inline-block;"} %>
+        </div>
+      </div>
+      <div class="weight-bold-text">
+        人混み
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="radio-button-form">
+        <div class="value1">
+          <%= f.radio_button :crowd, "多い" %>
+          <%= f.label :crowd, "多い", {value: "多い", style: "display: inline-block;"} %>
+        </div>
+        <div class="value2">
+          <%= f.radio_button :crowd, "やや多い" %>
+          <%= f.label :crowd, "やや多い", {value: "やや多い", style: "display: inline-block;"} %>
+        </div>
+        <div class="value3">
+          <%= f.radio_button :crowd, "どちらともいえない" %>
+          <%= f.label :crowd, "どちらともいえない", {value: "どちらともいえない", style: "display: inline-block;"} %>
+        </div>
+        <div class="value4">
+          <%= f.radio_button :crowd, "やや少ない" %>
+          <%= f.label :crowd, "やや少ない", {value: "やや少ない", style: "display: inline-block;"} %>
+        </div>
+        <div class="value5">
+          <%= f.radio_button :crowd, "少ない" %>
+          <%= f.label :crowd, "少ない", {value: "少ない", style: "display: inline-block;"} %>
+        </div>
+      </div>
+      <div class="weight-bold-text">
+        景色
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="radio-button-form">
+        <div class="value1">
+          <%= f.radio_button :view, "とても良い" %>
+          <%= f.label :view, "とても良い", {value: "とても良い", style: "display: inline-block;"} %>
+        </div>
+        <div class="value2">
+          <%= f.radio_button :view, "良い" %>
+          <%= f.label :view, "良い", {value: "良い", style: "display: inline-block;"} %>
+        </div>
+        <div class="value3">
+          <%= f.radio_button :view, "まあまあ" %>
+          <%= f.label :view, "まあまあ", {value: "まあまあ", style: "display: inline-block;"} %>
+        </div>
+        <div class="value4">
+          <%= f.radio_button :view, "そんなに..." %>
+          <%= f.label :view, "そんなに...", {value: "そんなに...", style: "display: inline-block;"} %>
+        </div>
+        <div class="value5">
+          <%= f.radio_button :view, "ノーコメント" %>
+          <%= f.label :view, "ノーコメント", {value: "ノーコメント", style: "display: inline-block;"} %>
+        </div>
+      </div>
+      <div class="weight-bold-text">
+        コメント
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :comment, class:"map-text", id:"map-text", placeholder:"コメント" ,rows:"7" ,maxlength:"1000" %>
     </div>
 
     <div class="post-btn-contents">

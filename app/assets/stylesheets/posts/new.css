@@ -38,12 +38,6 @@
   resize: none;
 }
 
-.distance-content {
-  margin-top: 2vh;
-  width: 300px;
-  padding: 10px;
-}
-
 .distance-input {
   height: 30px;
   text-align: right;
@@ -57,10 +51,6 @@
 .map-km {
   font-size: 18px;
   margin-left: 5px;
-}
-
-.map-comment {
-  margin-top: 2vh;
 }
 
 /* /新規投稿 */
