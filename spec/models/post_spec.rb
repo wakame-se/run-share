@@ -55,10 +55,40 @@ RSpec.describe Post, type: :model do
         expect(@post.errors.full_messages).to include('Distance is not a number')
       end
 
-      it 'textが空では登録できないこと' do
-        @post.text = ''
+      it 'courseが空では登録できないこと' do
+        @post.course = ''
         @post.valid?
-        expect(@post.errors.full_messages).to include("Text can't be blank")
+        expect(@post.errors.full_messages).to include("Course can't be blank")
+      end
+
+      it 'slopeが空では登録できないこと' do
+        @post.slope = ''
+        @post.valid?
+        expect(@post.errors.full_messages).to include("Slope can't be blank")
+      end
+
+      it 'trafficが空では登録できないこと' do
+        @post.traffic = ''
+        @post.valid?
+        expect(@post.errors.full_messages).to include("Traffic can't be blank")
+      end
+
+      it 'crowdが空では登録できないこと' do
+        @post.crowd = ''
+        @post.valid?
+        expect(@post.errors.full_messages).to include("Crowd can't be blank")
+      end
+
+      it 'viewが空では登録できないこと' do
+        @post.view = ''
+        @post.valid?
+        expect(@post.errors.full_messages).to include("View can't be blank")
+      end
+
+      it 'commentが空では登録できないこと' do
+        @post.comment = ''
+        @post.valid?
+        expect(@post.errors.full_messages).to include("Comment can't be blank")
       end
 
       it 'userが紐付いていないと保存できないこと' do

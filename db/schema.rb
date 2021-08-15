@@ -14,7 +14,12 @@ ActiveRecord::Schema.define(version: 20_210_812_090_844) do
   create_table 'posts', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
     t.text 'map_link', null: false
     t.integer 'distance', null: false
-    t.text 'text', null: false
+    t.string 'course', null: false
+    t.string 'slope', null: false
+    t.string 'traffic', null: false
+    t.string 'crowd', null: false
+    t.string 'view', null: false
+    t.text 'comment', null: false
     t.bigint 'user_id', null: false
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false

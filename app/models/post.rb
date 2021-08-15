@@ -4,7 +4,12 @@ class Post < ApplicationRecord
               format: { with: /\A#{URI::DEFAULT_PARSER.make_regexp(%w[http https])}\z/,
                         message: 'is invalid. Input URL.' }
     validates :distance, numericality: { greater_than: 0 }
-    validates :text
+    validates :course
+    validates :slope
+    validates :traffic
+    validates :crowd
+    validates :view
+    validates :comment
   end
 
   belongs_to :user
