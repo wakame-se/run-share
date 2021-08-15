@@ -22,9 +22,14 @@
 
 | Column   | Type       | Options                        |
 | -------- | ---------- | ------------------------------ |
-| map_text | text       | null: false                    |
+| map_link | text       | null: false                    |
 | distance | integer    | null: false                    |
-| text     | text       | null: false                    |
+| course   | string     | null: false                    |
+| slope    | string     | null: false                    |
+| traffic  | string     | null: false                    |
+| crowd    | string     | null: false                    |
+| view     | string     | null: false                    |
+| comment  | text       | null: false                    |
 | user     | references | null: false, foreign_key: true |
 
 ### Association
@@ -34,11 +39,11 @@
 
 # comments
 
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| text   | text       | null: false                    |
-| user   | references | null: false, foreign_key: true |
-| post   | references | null: false, foreign_key: true |
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| comment | text       | null: false                    |
+| user    | references | null: false, foreign_key: true |
+| post    | references | null: false, foreign_key: true |
 
 ### Association
 
