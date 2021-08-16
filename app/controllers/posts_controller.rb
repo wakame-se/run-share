@@ -20,6 +20,6 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:map_link, :distance, :course, :slope, :traffic, :crowd, :view,
-                                 :comment).merge(user_id: current_user.id)
+                                 :comment, :image).merge(user_id: current_user.id)
   end
 end
