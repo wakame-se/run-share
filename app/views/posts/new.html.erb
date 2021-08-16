@@ -4,6 +4,10 @@
 
   <div class="new-map-main">
     <h2 class="new-map-title">新規投稿</h2>
+    <div class="gmap">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d24972.244840799052!2d139.7673523407687!3d35.67816360167994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sja!2sjp!4v1629089771038!5m2!1sja!2sjp" width="100%" height="auto" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
     <%= form_with model: @post, local: true do |f| %>
 
     <%= render 'shared/error_messages', model: f.object %>
@@ -14,6 +18,11 @@
         <span class="indispensable">必須</span>
       </div>
       <%= f.text_field :map_link, class:"map-text", id:"map-link", placeholder:"共有リンク", maxlength:"200" %>
+      <div class="weight-bold-text">
+        コース画像
+        <span class="optional">任意</span>
+      </div>
+      <%= f.file_field :image, class:"map-image", id:"map-image" %>
       <div class="weight-bold-text">
         <span>距離</span>
         <span class="indispensable">必須</span>
