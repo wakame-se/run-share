@@ -32,13 +32,13 @@
   position: relative;
   }
 
-  .gmap iframe {
+.gmap iframe {
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  }
+}
 
 /* 新規投稿 */
 .new-posts {
