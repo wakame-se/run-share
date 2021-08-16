@@ -7,7 +7,8 @@ RSpec.describe Post, type: :model do
 
   describe '新規投稿機能' do
     context '新規投稿ができる時' do
-      it 'map_link、distance、textが存在すれば登録できること' do
+      it '画像以外が存在すれば登録できること' do
+        @post.image = nil
         expect(@post).to be_valid
       end
     end

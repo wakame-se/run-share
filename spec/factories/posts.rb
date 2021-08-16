@@ -9,5 +9,9 @@ FactoryBot.define do
     view { 'まあまあ' }
     comment { Faker::Lorem.sentence }
     association :user
+
+    after(:build) do |post|
+      post.image.attach(io: File.open('public/images/noimage.png'), filename: 'noimage.png')
+    end
   end
 end
