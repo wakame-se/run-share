@@ -1,13 +1,44 @@
 <%= render "shared/header" %>
 
-<%# <%= form_with(url: search_posts_path, local: true, method: :get, class: "search-form") do |form| %> %>
-  <%# <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %> %>
-  <%# <%= form.submit "検索", class: "search-btn" %> %>
-<%# <% end %> %>
-<%# <div class="contents row"> %>
-  <%# <% @posts.each do |tweet| %> %>
-    <%# <%= render partial: "post", locals: { post: post } %> %>
-  <%# <% end %> %>
-<%# </div> %>
+  <div class='index-map-contents'>
+    <h2 class='title'>ピックアップ</h2>
+    <div class="subtitle" >
+      新規投稿
+    </div>
+    <ul class='map-lists'>
+      <% @posts.each do |post| %>
+      <li class='list'>
+        <%# <%= link_to post_path(post.id) do %>
+        <div class='map-info'>
+          <h3 class='map-name'>
+            <%= link_to "このコースのマップを見る", post.map_link, target: :_blank, rel: "noopener noreferrer" %>
+          </h3>
+          <div class='index-image'>
+            <%= image_tag post.image, class: 'post-image' if post.image.attached? %>
+            <%= image_tag 'noimage.png', class: 'post-image' unless post.image.attached? %>
+          </div>
+          <div class="index-user-name">
+            <a href="/users/<%= post.user.id %>">
+              <span>投稿者：</span><%= post.user.nickname %>
+            </a>
+          </div>
+          <div class='map-distance'>
+            <span>コース距離：約<%= post.distance %>km</span>
+          </div>
+          <div class='map-comment'>
+            <span class="box-title">コメント</span>
+            <span><%= post.comment %></span>
+          </div>
+        </div>
+        <%# <% end %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+
+<%= link_to(new_post_path, class: 'post-btn') do %>
+  <span class='post-btn-text'>投稿する</span>
+  <%= image_tag 'mapicon.png' , size: '185x50' ,class: "post-btn-icon" %>
+<% end %>
 
 <%= render "shared/footer" %>

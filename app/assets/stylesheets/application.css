@@ -16,7 +16,7 @@
 
  /* 共通 */
 .logo-name {
-  color: black;
+  color: white;
   text-decoration: none;
 }
 
@@ -45,6 +45,21 @@
   min-width: 170px;
   margin-top: 2vh;
   margin-bottom: 10px;
+}
+
+.index-image {
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 75%;
+  position: relative;
+  }
+
+.post-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
 }
 
 .radio-button-form {
