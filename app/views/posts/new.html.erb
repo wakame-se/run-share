@@ -19,6 +19,11 @@
       </div>
       <%= f.text_field :map_link, class:"map-text", id:"map-link", placeholder:"共有リンク", maxlength:"200" %>
       <div class="weight-bold-text">
+        コース画像
+        <span class="optional">任意</span>
+      </div>
+      <%= f.file_field :image, class:"map-image", id:"map-image" %>
+      <div class="weight-bold-text">
         <span>距離</span>
         <span class="indispensable">必須</span>
       </div>
