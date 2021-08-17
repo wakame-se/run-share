@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20_210_816_055_617) do
 
   create_table 'posts', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
     t.text 'map_link', null: false
-    t.integer 'distance', null: false
+    t.float 'distance', null: false
     t.string 'course', null: false
     t.string 'slope', null: false
     t.string 'traffic', null: false

@@ -1,0 +1,37 @@
+<%= render "shared/header" %>
+
+<div class='index-map-contents'>
+  <h2 class='title'>ピックアップ</h2>
+  <div class="subtitle" >
+    新規投稿
+  </div>
+  <ul class='map-lists'>
+    <% @posts.each do |post| %>
+    <li class='list'>
+      <div class='map-info'>
+        <h3 class='map-name'>
+          <%= link_to "このコースのマップを見る", post.map_link, target: :_blank, rel: "noopener noreferrer" %>
+        </h3>
+        <div class='index-image'>
+          <%= image_tag post.image, class: 'post-image' if post.image.attached? %>
+          <%= image_tag 'noimage.png', class: 'post-image' unless post.image.attached? %>
+        </div>
+        <div class="index-user-name">
+          <%= link_to user_path(post.user.id) do %>
+            <span>投稿者：</span><%= post.user.nickname %>
+          <% end %>
+        </div>
+        <div class='map-distance'>
+          <span>コース距離：約<%= post.distance %>km</span>
+        </div>
+        <div class='map-comment'>
+          <span class="box-title">コメント</span>
+          <span><%= post.comment %></span>
+        </div>
+      </div>
+    </li>
+    <% end %>
+  </ul>
+</div>
+
+<%= render "shared/footer" %>

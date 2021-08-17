@@ -27,7 +27,7 @@
         <span>距離</span>
         <span class="indispensable">必須</span>
       </div>
-      <%= f.number_field :distance, class:"distance-input", id:"map-distance", placeholder:"例）5" %>
+      <%= f.number_field :distance, step: "0.1", class:"distance-input", id:"map-distance", placeholder:"例）5" %>
       <span class="map-km">km</span>
       <div class="weight-bold-text">
         山コース or 海コース

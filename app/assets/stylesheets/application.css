@@ -51,6 +51,7 @@
   height: 0;
   overflow: hidden;
   padding-bottom: 75%;
+  background-color: #f2f2f2;
   position: relative;
   }
 
@@ -58,8 +59,11 @@
   position: absolute;
   top: 0;
   left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
   height: 100%;
-  width: 100%;
+  width: auto;
 }
 
 .radio-button-form {
