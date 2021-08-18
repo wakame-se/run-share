@@ -7,8 +7,7 @@ class UsersController < ApplicationController
     @posts = @user.posts
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @user.update(user_params)
@@ -30,6 +29,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:nickname, :email, :password, :password_confirmation, :last_name, :first_name, :last_name_reading, :first_name_reading, :birthday)
+    params.require(:user).permit(:nickname, :email, :password, :password_confirmation, :last_name, :first_name,
+                                 :last_name_reading, :first_name_reading, :birthday)
   end
 end
