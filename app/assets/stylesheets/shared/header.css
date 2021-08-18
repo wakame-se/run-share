@@ -4,21 +4,28 @@
 
 .top-page-header {
   width: 100vw;
-  padding: 2vh 4vw;
   background-color: rgba(0, 0, 0);
   position: fixed;
-  top: 0px;
+  top: 0;
   z-index: 10;
-  color: white;
 }
 
 .nav {
-  font-size: 18px;
+  font-size: 3vh;
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
   width: 100%;
-  padding: 1vh 0;
+  padding: 0 4vw;
+  line-height: 8vh;
+}
+
+.top-page-header > .nav > .lists-left > i {
+  color: #ff00ff;
+}
+
+.header-logo-name {
+  color: #ff00ff;
+  font-weight: bold;
 }
 
 .lists-right {
@@ -27,32 +34,60 @@
   align-items: flex-end;
 }
 
-
 .user-nickname {
   text-decoration: none;
-  margin-right: 3vw;
-  color: white;;
+  color: white;
+  padding: 0 2vw;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .new-post {
   text-decoration: none;
-  margin-right: 3vw;
-  color: white;;
+  color: white;
+  padding: 0 2vw;
 }
 
 .logout {
   text-decoration: none;
   color: white;
+  padding-left: 2vw;
 }
 
 .login {
   text-decoration: none;
-  margin-right: 3vw;
   color: white;
+  padding: 0 2vw;
 }
 
 .sign-up {
   text-decoration: none;
+  color: white;
+  padding-left: 2vw;
+}
+
+.user-page-lists {
+  font-size: 2vh;
+  width: 11vw;
+  position: absolute;
+  top: 8vh;
+  right: 25vw;
+  background-color: #5c5c5c;
+}
+
+.hidden {
+  display: none;
+}
+
+.user-page-lists > li {
+  padding: 1vh 1vw;
+  border-bottom: 1px solid white;
+}
+
+.my-page {
+  color: white;
+}
+
+.my-profile {
   color: white;
 }

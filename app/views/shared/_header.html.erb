@@ -1,13 +1,13 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
 <header class='top-page-header'>
   <div class='nav'>
-    <p class="fa">
+    <div class="lists-left">
       <i class="fas fa-running fa-fw fa-flip-horizontal"></i>
-      <%= link_to "RunShare", root_path, class: "logo-name" %>
-    </p>
+      <%= link_to "RunShare", root_path, class: "header-logo-name" %>
+    </div>
     <ul class='lists-right'>
       <% if user_signed_in? %>
-        <li><%= link_to current_user.nickname, user_path(current_user.id), class: "user-nickname" %></li>
+        <li class="user-nickname", id="user-nickname"><%= current_user.nickname %></li>
         <li><%= link_to '新規投稿', new_post_path, class: "new-post" %></li>
         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
       <% else %>
@@ -16,4 +16,10 @@
       <% end %>
     </ul>
   </div>
+  <ul class="user-page-lists hidden" id="header-pull-down">
+    <% if user_signed_in? %>
+      <li><%= link_to "マイページ", user_path(current_user.id), class: "my-page" %></li>
+      <li><%= link_to "プロフィール情報", edit_user_path(current_user.id), class: "my-profile" %></li>
+    <% end %>
+  </ul>
 </header>
