@@ -1,4 +1,4 @@
-function pullDown(){
+function headerPullDown(){
   const pullDownButton = document.getElementById("user-nickname")
   const pullDownParents = document.getElementById("header-pull-down")
 
@@ -19,4 +19,4 @@ function pullDown(){
   })
 }
 
-window.addEventListener('load', pullDown)
+window.addEventListener('load', headerPullDown)
