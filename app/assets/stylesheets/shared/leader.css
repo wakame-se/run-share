@@ -1,0 +1,29 @@
+.leader {
+  color: gray;
+  text-align: right;
+  position: absolute;
+  top: 1vh;
+  right: 1vw;
+  z-index: 10;
+}
+
+.leader > span {
+  cursor: pointer;
+}
+
+.leader-lists {
+  font-size: 2vh;
+  width: 5vw;
+  background-color: #5c5c5c;
+  display: none;
+}
+
+.leader-lists > li {
+  padding: 0.8vh 0.8vw;
+  border-bottom: 1px solid white;
+  text-align: center;
+}
+
+.leader-list > a {
+  color: white;
+}

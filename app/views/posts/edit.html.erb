@@ -3,7 +3,7 @@
 <div class="new-map-contents">
 
   <div class="new-map-main">
-    <h2 class="new-map-title">新規投稿</h2>
+    <h2 class="new-map-title">投稿編集</h2>
     <%= form_with model: @post, local: true do |f| %>
 
     <%= render 'shared/error_messages', model: f.object %>
@@ -167,7 +167,7 @@
     </div>
 
     <div class="post-btn-contents">
-      <%= f.submit "投稿する", class: "new-post-btn" %>
+      <%= f.submit "編集する", class: "new-post-btn" %>
       <%= link_to 'もどる', root_path, class:"back-btn" %>
     </div>
 

@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :move_to_index, except: :show
 
   def show
-    @posts = @user.posts
+    @posts = @user.posts.order(created_at: :DESC)
   end
 
   def edit; end

@@ -48,15 +48,13 @@ a {
 .map-info {
   background-color: #FFF;
   color: black;
-  padding: 1vw;
+  border: 1px solid #3ccace;
+  padding: 1vh 1vw;
+  position: relative;
 }
 
 .map-name {
   font-size: 3vh;
-}
-
-.index-user-name {
-  text-align: right;
 }
 
 .map-distance {
