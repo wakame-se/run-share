@@ -4,7 +4,7 @@
       <span>…</span>
       <ul class="leader-lists">
         <li class="leader-list"><%= link_to "編集", edit_post_path(post.id) %></li>
-        <li class="leader-list"><%= link_to "削除", edit_post_path(post.id) %></li>
+        <li class="leader-list"><%= link_to "削除", post_path(post.id), method: :delete %></li>
       </ul>
     </div>
   <% end %>
