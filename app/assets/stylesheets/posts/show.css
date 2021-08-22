@@ -1,0 +1,104 @@
+/* 投稿詳細 */
+
+.show-map-contents {
+  background-color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10vh 0;
+}
+
+.show-map-contents>.title {
+  font-size: 5vh;
+  font-weight: bold;
+  text-align: center;
+}
+
+.show-map-info {
+  width: 50vw;
+  background-color: #FFF;
+  color: black;
+  border: 1px solid #3ccace;
+  padding: 1vh 1vw;
+  margin: 1vh 1vw;
+  position: relative;  /* 3点リーダー用 */
+}
+
+.show-image {
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 75%;
+  background-color: #f2f2f2;
+  position: relative;
+}
+
+.show-post-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  height: 100%;
+  width: auto;
+}
+
+.show-map-name {
+  font-size: 3vh;
+}
+
+.show-map-distance {
+  font-size: 3vh;
+  margin-top: 1vh;
+}
+
+.show-lists {
+  border-collapse: collapse;
+  border: 1px solid lightgray;
+  width: 100%;
+  margin: 3vh 0;
+}
+
+.show-list {
+  border: 1px solid lightgray;
+  padding: 0.3em;
+  width: 50%;
+}
+
+.answer {
+  border: 1px solid lightgray;
+  padding: 0.3em;
+  width: 50%;
+}
+
+.map-btn {
+  display: flex;
+  align-items: center;
+}
+
+.show-map-comment {
+  font-size: 2.5vh;
+  padding: 2em 0.5em 1em;
+  margin: 0.5em 0;
+  border: solid 1px #FFC107;
+  position: relative;
+}
+
+.show-map-comment .box-title {
+  position: absolute;
+  display: inline-block;
+  top: -1px;
+  left: -1px;
+  font-size: 2.5vh;
+  padding: 0 0.5em;
+  background: #FFC107;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.show-map-comment span {
+  margin: 0;
+  padding: 0;
+}
+
+/* //投稿詳細 */

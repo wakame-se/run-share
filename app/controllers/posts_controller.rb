@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :post_find, only: %i[edit update destroy]
+  before_action :post_find, only: %i[show edit update destroy]
   before_action :authenticate_user!, except: %i[index show]
   before_action :move_to_index, only: %i[edit update destroy]
 
@@ -20,11 +20,13 @@ class PostsController < ApplicationController
     end
   end
 
+  def show; end
+
   def edit; end
 
   def update
     if @post.update(post_params)
-      redirect_to user_path(current_user.id)
+      redirect_to post_path(@post.id)
     else
       render :edit
     end

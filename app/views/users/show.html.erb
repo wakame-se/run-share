@@ -15,7 +15,7 @@
           <% end %>
         </div>
 
-        <%= render "shared/leader", post: post %>
+        <%= render "shared/second-leader", post: post %>
 
         <div class='index-image'>
           <%= image_tag post.image, class: 'post-image' if post.image.attached? %>
@@ -29,7 +29,7 @@
         </div>
         <div class='map-comment'>
           <span class="box-title">コメント</span>
-          <span><%= post.comment %></span>
+          <span><%= truncate(post.comment, length: 40) %></span>
         </div>
       </div>
     </li>

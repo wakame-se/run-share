@@ -14,7 +14,16 @@
  *= require_self
  */
 
- /* 共通 */
+/* 共通 */
+
+ a {
+  text-decoration: none;
+}
+
+.main {
+  background: #f8f8f8;
+}
+
 .logo-name {
   color: black;
   text-decoration: none;
