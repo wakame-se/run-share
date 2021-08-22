@@ -1,0 +1,55 @@
+<%= render "shared/header" %>
+
+<div class='show-map-contents'>
+  <div class="title" >
+    投稿詳細
+  </div>
+  <div class='show-map-info'>
+    <div class="show-user-name">
+      <%= link_to user_path(@post.user.id) do %>
+        <span>投稿者：</span><%= @post.user.nickname %>
+      <% end %>
+    </div>
+
+    <%= render "shared/second-leader", post: @post %>
+
+    <div class='show-image'>
+      <%= image_tag @post.image, class: 'show-post-image' if @post.image.attached? %>
+      <%= image_tag 'noimage.png', class: 'show-post-image' unless @post.image.attached? %>
+    </div>
+    <div class='show-map-name'>
+      <%= link_to "このコースのマップを見る", @post.map_link, target: :_blank, rel: "noopener noreferrer" %>
+    </div>
+    <div class='show-map-distance'>
+      <span>コース距離：約<%= @post.distance %>km</span>
+    </div>
+    <table class='show-lists'>
+      <tr>
+        <td class='show-list'>山コース？ 海コース？</td>
+        <td class='answer'><%= @post.course %></td>
+      </tr>
+      <tr>
+        <td class='show-list'>坂の多さ</td>
+        <td class='answer'><%= @post.slope %></td>
+      </tr>
+      <tr>
+        <td class='show-list'>交通量</td>
+        <td class='answer'><%= @post.traffic %></td>
+      </tr>
+      <tr>
+        <td class='show-list'>人混みの多さ</td>
+        <td class='answer'><%= @post.crowd %></td>
+      </tr>
+      <tr>
+        <td class='show-list'>景色の良さ</td>
+        <td class='answer'><%= @post.view %></td>
+      </tr>
+    </table>
+    <div class='show-map-comment'>
+      <span class="box-title">コメント</span>
+      <span><%= @post.comment %></span>
+    </div>
+  </div>
+</div>
+
+<%= render "shared/footer" %>
