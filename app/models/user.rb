@@ -20,4 +20,5 @@ class User < ApplicationRecord
             format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: 'is invalid. Input half-width characters.' }
 
   has_many :posts, dependent: :destroy
+  has_many :likes, dependent: :destroy
 end
