@@ -11,7 +11,7 @@
         <div class='map-info'>
           <div class="index-user-name">
             <%= link_to user_path(post.user.id) do %>
-              <span>投稿者：</span><%= post.user.nickname %>
+              <span><%= post.user.nickname %></span>
             <% end %>
           </div>
 
@@ -21,6 +21,11 @@
             <%= image_tag post.image, class: 'post-image' if post.image.attached? %>
             <%= image_tag 'noimage.png', class: 'post-image' unless post.image.attached? %>
           </div>
+
+          <div id="likes-<%= post.id %>">
+            <%= render "shared/like", post: post %>
+          </div>
+
           <div class='map-name'>
             <%= link_to "このコースのマップを見る", post.map_link, target: :_blank, rel: "noopener noreferrer" %>
           </div>
