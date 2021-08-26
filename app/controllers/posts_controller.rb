@@ -5,7 +5,6 @@ class PostsController < ApplicationController
   before_action :set_search, only: %i[index search]
 
   def index
-    @posts = Post.includes(:user).order(created_at: :DESC)
   end
 
   def new
@@ -39,7 +38,6 @@ class PostsController < ApplicationController
   end
 
   def search
-    @posts = @q.result(distinct: true).includes(:user).order(created_at: :DESC)
   end
 
   private
@@ -58,6 +56,13 @@ class PostsController < ApplicationController
   end
 
   def set_search
-    @q = Post.ransack(params[:q])
+    if params[:q].present?
+      @q = Post.ransack(params[:q])
+      @posts = @q.result(distinct: true).includes(:user)
+    else
+      params[:q] = {sorts: 'created_at desc'}
+      @q = Post.ransack(params[:q])
+      @posts = @q.result(distinct: true).includes(:user)
+    end
   end
 end

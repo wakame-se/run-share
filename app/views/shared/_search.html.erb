@@ -1,5 +1,5 @@
 <div class="search-contents">
-  <%= search_form_for @q, url: search_posts_path, class: "search-form" do |f| %>
+  <%= search_form_for @q, url: root_path, class: "search-form" do |f| %>
     <div class="distances">
       <p>距離</p>
       <%= f.number_field :distance_gteq, placeholder: "例）5", class: "distance-search" %>km以上〜
@@ -52,6 +52,8 @@
     <div class="keywords">
       <p>キーワード</p>
       <%= f.search_field :comment_cont, placeholder: "投稿を検索する", class: "search-input" %>
+
+      <%= f.select(:sorts, {'投稿が新しい順': 'created_at desc', '投稿が古い順': 'created_at asc', '距離が長い順': 'distance desc', '距離が短い順': 'distance asc', '人気順': 'likes_count desc'}, { selected: params[:q][:sorts] }, class: "sort-input") %>
 
       <%= f.submit "検索", class: "search-btn" %>
     </div>

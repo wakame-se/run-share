@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
+    collection do
+      get 'sort'
+    end
     resource :likes, only: %i[create destroy]
   end
   resources :users, only: %i[show edit update]
