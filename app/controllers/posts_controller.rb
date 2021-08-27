@@ -4,7 +4,9 @@ class PostsController < ApplicationController
   before_action :move_to_index, only: %i[edit update destroy]
   before_action :set_search, only: :index
 
-  def index; end
+  def index
+    @posts = @q.result(distinct: true).includes(:user).page(params[:page]).per(3)
+  end
 
   def new
     @post = Post.new
@@ -54,6 +56,5 @@ class PostsController < ApplicationController
   def set_search
     params[:q] = { sorts: 'created_at desc' } unless params[:q].present?
     @q = Post.ransack(params[:q])
-    @posts = @q.result(distinct: true).includes(:user)
   end
 end

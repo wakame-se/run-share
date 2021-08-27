@@ -7,6 +7,9 @@
     <div class="subtitle" >
       投稿一覧
     </div>
+    <div class='pagination'>
+      <%= paginate @posts %>
+    </div>
     <ul class='map-lists'>
       <% @posts.each do |post| %>
       <li class='map-list'>
@@ -42,12 +45,10 @@
       </li>
       <% end %>
     </ul>
+    <div class='pagination'>
+      <%= paginate @posts %>
+    </div>
   </div>
-
-  <%# <%= link_to(new_post_path, class: 'post-btn') do %>
-    <%# <span class='post-btn-text'>投稿する</span> %>
-    <%# <%= image_tag 'mapicon.png' , size: '185x50' ,class: "post-btn-icon" %>
-  <%# <% end %>
 </div>
 
 <%= render "shared/footer" %>
