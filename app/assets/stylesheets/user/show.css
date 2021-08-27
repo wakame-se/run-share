@@ -1,61 +1,43 @@
 /* 投稿一覧 */
-.index-main {
-  display: flex;
-  height: 100vh;
-}
 
-.index-map-contents {
-  background-color: #fff;
-  width: 82%;
+/* .index-map-contents {
+  background-color: #FFF;
   display: flex;
   flex-direction: column;
-  padding: 13vh 2vw;
-  overflow-y: auto;
+  align-items: center;
+  padding: 0 0 10vh;
 }
 
 .index-map-contents>.subtitle {
-  font-size: 24px;
+  font-size: 3vh;
   text-decoration: none;
-  color: limegreen;
+  color: #3ccace;
   font-weight: bold;
 }
 
 .map-lists {
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.map-lists>.map-list {
-  width: 100%;
-  margin-top: 2vh;
-  background: linear-gradient(to bottom, #f0fff0, white);
+.map-lists>.list {
+  width: 25vw;
+  padding: 1vw;
+  background-color: #FFF;
 }
 
 .map-info {
+  background-color: #FFF;
   color: black;
-  border: 1px solid limegreen;
+  border: 1px solid #3ccace;
   padding: 1vh 1vw;
-  display: flex;
-}
-
-.post-left-contents {
-  width: 30%;
   position: relative;
-}
-
-.post-right-contents {
-  padding: 1em 0 1em 3%;
-  width: 67%;
 }
 
 .map-name {
   font-size: 3vh;
-}
-
-.map-name-link {
-  text-decoration: underline;
 }
 
 .map-distance {
@@ -71,9 +53,8 @@
 .map-comment {
   font-size: 2.5vh;
   padding: 2em 0.5em 1em;
-  margin-top: 4vh;
-  border: solid 1px lightgray;
-  background-color: #fffff0;
+  margin: 0.5em 0;
+  border: solid 1px #FFC107;
   height: 7em;
   position: relative;
 }
@@ -85,7 +66,7 @@
   left: -1px;
   font-size: 2.5vh;
   padding: 0 0.5em;
-  background: gray;
+  background: #FFC107;
   color: #ffffff;
   font-weight: bold;
 }
@@ -93,6 +74,6 @@
 .map-comment span {
   margin: 0;
   padding: 0;
-}
+} */
 
 /* //投稿一覧 */

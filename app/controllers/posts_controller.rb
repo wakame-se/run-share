@@ -1,11 +1,10 @@
 class PostsController < ApplicationController
   before_action :post_find, only: %i[show edit update destroy]
-  before_action :authenticate_user!, except: %i[index show]
+  before_action :authenticate_user!, except: %i[index show search]
   before_action :move_to_index, only: %i[edit update destroy]
+  before_action :set_search, only: :index
 
-  def index
-    @posts = Post.includes(:user).order(created_at: :DESC)
-  end
+  def index; end
 
   def new
     @post = Post.new
@@ -50,5 +49,11 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:map_link, :distance, :course, :slope, :traffic, :crowd, :view,
                                  :comment, :image).merge(user_id: current_user.id)
+  end
+
+  def set_search
+    params[:q] = { sorts: 'created_at desc' } unless params[:q].present?
+    @q = Post.ransack(params[:q])
+    @posts = @q.result(distinct: true).includes(:user)
   end
 end

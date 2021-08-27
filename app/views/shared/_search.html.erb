@@ -1,0 +1,71 @@
+<div class="search-contents">
+  <div class="side-title" >
+    [検索]
+  </div>
+
+  <%= search_form_for @q, url: root_path, class: "search-form" do |f| %>
+
+    <div class="sort-menu">
+      <p class="search-box-title">並べ替え</p>
+      <%= f.select(:sorts, {'投稿が新しい順': 'created_at desc', '投稿が古い順': 'created_at asc', '距離が長い順': 'distance desc', '距離が短い順': 'distance asc', '人気順': 'likes_count desc'}, { selected: params[:q][:sorts] }, class: "sort-input") %>
+    </div>
+
+    <div class="distances">
+      <p>距離</p>
+      <p><%= f.number_field :distance_gteq, placeholder: "例）5", class: "distance-search" %>km以上〜</p>
+      <p><%= f.number_field :distance_lteq, placeholder: "例）10", class: "distance-search" %>km以下</p>
+    </div>
+
+    <div class="check-boxes">
+      <div class="check-box">
+        <p>コース</p>
+        <% choices = ["ほぼ山", "やや山寄り", "どちらともいえない", "やや海、川寄り", "ほぼ海、川沿い"] %>
+        <% choices.each do |c| %>
+          <%= f.check_box :course_eq_any, {multiple: true}, c, nil %>
+          <%= f.label :course, c %><br>
+        <% end %>
+      </div>
+      <div class="check-box">
+        <p>坂</p>
+        <% choices = ["ほぼ坂", "やや坂多め", "どちらともいえない", "坂は少なめ", "ほぼ平坦"] %>
+        <% choices.each do |c| %>
+          <%= f.check_box :slope_eq_any, {multiple: true}, c, nil %>
+          <%= f.label :slope, c %><br>
+        <% end %>
+      </div>
+      <div class="check-box">
+        <p>交通量</p>
+        <% choices = ["多い", "やや多い", "どちらともいえない", "やや少ない", "少ない"] %>
+        <% choices.each do |c| %>
+          <%= f.check_box :traffic_eq_any, {multiple: true}, c, nil %>
+          <%= f.label :traffic, c %><br>
+        <% end %>
+      </div>
+      <div class="check-box">
+        <p>人混み</p>
+        <% choices = ["多い", "やや多い", "どちらともいえない", "やや少ない", "少ない"] %>
+        <% choices.each do |c| %>
+          <%= f.check_box :crowd_eq_any, {multiple: true}, c, nil %>
+          <%= f.label :crowd, c %><br>
+        <% end %>
+      </div>
+      <div class="check-box">
+        <p>景色</p>
+        <% choices = ["とても良い", "良い", "まあまあ", "そんなに...", "ノーコメント"] %>
+        <% choices.each do |c| %>
+          <%= f.check_box :view_eq_any, {multiple: true}, c, nil %>
+          <%= f.label :view, c %><br>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="keywords">
+      <p>キーワード</p>
+      <%= f.search_field :comment_cont, placeholder: "投稿を検索する", class: "search-input" %>
+    </div>
+
+    <div class="search-btn-contents">
+      <%= f.submit "検索", class: "search-btn" %>
+    </div>
+  <% end %>
+</div>
