@@ -2,10 +2,9 @@ class PostsController < ApplicationController
   before_action :post_find, only: %i[show edit update destroy]
   before_action :authenticate_user!, except: %i[index show search]
   before_action :move_to_index, only: %i[edit update destroy]
-  before_action :set_search, only: %i[index search]
+  before_action :set_search, only: :index
 
-  def index
-  end
+  def index; end
 
   def new
     @post = Post.new
@@ -37,9 +36,6 @@ class PostsController < ApplicationController
     redirect_to user_path(current_user.id)
   end
 
-  def search
-  end
-
   private
 
   def post_find
@@ -56,13 +52,8 @@ class PostsController < ApplicationController
   end
 
   def set_search
-    if params[:q].present?
-      @q = Post.ransack(params[:q])
-      @posts = @q.result(distinct: true).includes(:user)
-    else
-      params[:q] = {sorts: 'created_at desc'}
-      @q = Post.ransack(params[:q])
-      @posts = @q.result(distinct: true).includes(:user)
-    end
+    params[:q] = { sorts: 'created_at desc' } unless params[:q].present?
+    @q = Post.ransack(params[:q])
+    @posts = @q.result(distinct: true).includes(:user)
   end
 end
