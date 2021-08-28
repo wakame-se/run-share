@@ -1,64 +1,10 @@
-/* 下部広告部分 */
-
-.ad-footer-contents {
-  width: 100vw;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 5vh 15vw;
-  color: #fff;
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
-}
-
-.ad-footer-title {
-  font-size: 4vh;
-  margin-bottom: 2vh;
-}
-
-.ad-footer-explain {
-  font-size: 3vh;
-  line-height: 30px;
-}
-
-/* //下部広告部分 */
-
 .footer {
   width: 100vw;
-  padding: 4vh 0;
-  color: #FFF;
-  background-color: #272727;
+  padding: 1vh 0;
+  color: black;
+  background-color: #fff;
   text-align: center;
-}
-
-.footer-contents {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 2vh;
-}
-
-.rs-details {
-  margin: 0 4vw;
-}
-
-.footer-content-head {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.footer-link {
-  color: #FFF;
-  font-size: 12px;
-  line-height: 30px;
-}
-
-.logo-white {
-  width: 20vh;
-  vertical-align: bottom;
+  border-top: 1px solid lightgray;
 }
 
 .footer>p {

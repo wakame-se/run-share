@@ -1,38 +1,33 @@
 <%= render "shared/header" %>
 
-<div class='index-map-contents'>
-  <h2 class='title'>ピックアップ</h2>
+<div class='user-show-contents'>
   <div class="subtitle" >
     投稿一覧
   </div>
-  <ul class='map-lists'>
+  <ul class='user-show-map-lists'>
     <% @posts.each do |post| %>
-    <li class='list'>
-      <div class='map-info'>
-        <div class="index-user-name">
+    <li class='user-show-map-list'>
+      <div class='user-show-map-info'>
+        <div class="user-show-user-name">
           <%= link_to user_path(post.user.id) do %>
             <span><%= post.user.nickname %></span>
           <% end %>
+          <%= render "shared/second-leader", post: post %>
         </div>
-
-        <%= render "shared/second-leader", post: post %>
-
-        <div class='index-image'>
+        <div class='back-image'>
           <%= image_tag post.image, class: 'post-image' if post.image.attached? %>
           <%= image_tag 'noimage.png', class: 'post-image' unless post.image.attached? %>
         </div>
-
         <div id="likes-<%= post.id %>">
           <%= render "shared/like", post: post %>
         </div>
-
-        <div class='map-name'>
+        <div class='user-show-map-name'>
           <%= link_to "このコースのマップを見る", post.map_link, target: :_blank, rel: "noopener noreferrer" %>
         </div>
-        <div class='map-distance'>
+        <div class='user-show-map-distance'>
           <span>コース距離：約<%= post.distance %>km</span>
         </div>
-        <div class='map-comment'>
+        <div class='user-show-map-comment'>
           <span class="box-title">コメント</span>
           <span><%= truncate(post.comment, length: 40) %></span>
         </div>

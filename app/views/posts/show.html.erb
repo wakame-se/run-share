@@ -1,7 +1,7 @@
 <%= render "shared/header" %>
 
 <div class='show-map-contents'>
-  <div class="title" >
+  <div class="subtitle" >
     投稿詳細
   </div>
   <div class='show-map-info'>
@@ -9,13 +9,11 @@
       <%= link_to user_path(@post.user.id) do %>
         <span><%= @post.user.nickname %></span>
       <% end %>
+      <%= render "shared/second-leader", post: @post %>
     </div>
-
-    <%= render "shared/second-leader", post: @post %>
-
-    <div class='show-image'>
-      <%= image_tag @post.image, class: 'show-post-image' if @post.image.attached? %>
-      <%= image_tag 'noimage.png', class: 'show-post-image' unless @post.image.attached? %>
+    <div class='back-image'>
+      <%= image_tag @post.image, class: 'post-image' if @post.image.attached? %>
+      <%= image_tag 'noimage.png', class: 'post-image' unless @post.image.attached? %>
     </div>
 
     <div id="likes-<%= @post.id %>">
@@ -29,6 +27,10 @@
       <span>コース距離：約<%= @post.distance %>km</span>
     </div>
     <table class='show-lists'>
+      <tr>
+        <th class='show-list-head'>コースの種類</th>
+        <th class='answer-head'>回答</th>
+      </tr>
       <tr>
         <td class='show-list'>山コース？ 海コース？</td>
         <td class='answer'><%= @post.course %></td>

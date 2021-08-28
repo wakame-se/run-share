@@ -1,0 +1,30 @@
+.second-leader {
+  color: gray;
+  text-align: right;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.second-leader > span {
+  cursor: pointer;
+}
+
+.second-leader-lists {
+  font-size: 2vh;
+  width: 5vw;
+  background-color: #5c5c5c;
+  display: none;
+  z-index: 10;
+}
+
+.second-leader-lists > li {
+  padding: 0.8vh 0.8vw;
+  border-bottom: 1px solid white;
+  text-align: center;
+}
+
+.second-leader-list > a {
+  color: white;
+}

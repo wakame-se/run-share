@@ -5,46 +5,32 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10vh 0;
+  padding: 13vh 2vw;
 }
 
-.show-map-contents>.title {
-  font-size: 5vh;
+.show-map-contents>.subtitle {
+  font-size: 24px;
+  color: limegreen;
   font-weight: bold;
-  text-align: center;
 }
 
 .show-map-info {
   width: 50vw;
-  background-color: #FFF;
+  background: linear-gradient(to bottom, #f0fff0, white);
   color: black;
-  border: 1px solid #3ccace;
+  border: 1px solid limegreen;
   padding: 1vh 1vw;
-  margin: 1vh 1vw;
+  margin-top: 2vh;
+}
+
+.show-user-name {
   position: relative;  /* 3点リーダー用 */
-}
-
-.show-image {
-  height: 0;
-  overflow: hidden;
-  padding-bottom: 75%;
-  background-color: #f2f2f2;
-  position: relative;
-}
-
-.show-post-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  margin: auto;
-  height: 100%;
-  width: auto;
+  font-size: 3vh;
 }
 
 .show-map-name {
   font-size: 3vh;
+  text-decoration: underline;
 }
 
 .show-map-distance {
@@ -57,6 +43,24 @@
   border: 1px solid lightgray;
   width: 100%;
   margin: 3vh 0;
+}
+
+.show-list-head {
+  border: 1px solid lightgray;
+  padding: 0.3em;
+  width: 50%;
+  background-color: gray;
+  color: #fff;
+  text-align: center;
+}
+
+.answer-head {
+  border: 1px solid lightgray;
+  padding: 0.3em;
+  width: 50%;
+  background-color: gray;
+  color: #fff;
+  text-align: center;
 }
 
 .show-list {
@@ -80,7 +84,8 @@
   font-size: 2.5vh;
   padding: 2em 0.5em 1em;
   margin: 0.5em 0;
-  border: solid 1px #FFC107;
+  border: solid 1px lightgray;
+  background-color: #fffff0;
   position: relative;
 }
 
@@ -91,7 +96,7 @@
   left: -1px;
   font-size: 2.5vh;
   padding: 0 0.5em;
-  background: #FFC107;
+  background: gray;
   color: #ffffff;
   font-weight: bold;
 }

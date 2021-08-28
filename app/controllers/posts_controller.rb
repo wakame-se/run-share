@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   before_action :set_search, only: :index
 
   def index
-    @posts = @q.result(distinct: true).includes(:user).page(params[:page]).per(3)
+    @posts = @q.result(distinct: true).includes(:user).page(params[:page]).per(5)
   end
 
   def new
