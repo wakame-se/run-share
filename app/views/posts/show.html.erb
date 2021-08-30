@@ -57,6 +57,26 @@
       <span><%= @post.comment %></span>
     </div>
   </div>
+  <div class="comment-container">
+    <% if user_signed_in? %>
+      <%= form_with model: [@post, @comment], class: 'comment-form', local: true do |f| %>
+        <p><%= f.text_area :comment, class: 'comment-input', placeholder: "コメントする", maxlength: "140" %><p>
+        <p><%= f.submit "送信", class: 'comment-form-submit' %></p>
+      <% end %>
+    <% else %>
+      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+    <% end %>
+    <div class="comments">
+      <p>＜コメント一覧＞</p>
+      <% @comments.each do |comment| %>
+        <p>
+          <strong><%= link_to comment.user.nickname, user_path(comment.user.id) %>：</strong>
+          <%= comment.comment %>
+          <strong>[<%= link_to "削除", post_comment_path(post_id: @post.id, id: comment.id), method: :delete %>]</strong>
+        </p>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <%= render "shared/footer" %>
