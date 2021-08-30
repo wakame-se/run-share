@@ -16,4 +16,11 @@
       </ul>
     </div>
   <% end %>
+<% else %>
+  <div class="second-leader">
+    <span>…</span>
+    <ul class="second-leader-lists">
+      <li class="second-leader-list"><%= link_to "詳細", post_path(post.id) %></li>
+    </ul>
+  </div>
 <% end %>
