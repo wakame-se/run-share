@@ -60,6 +60,7 @@
   <div class="comment-container">
     <% if user_signed_in? %>
       <%= form_with model: [@post, @comment], class: 'comment-form', local: true do |f| %>
+        <%= render 'shared/error_messages', model: f.object %>
         <div class='comment-contents'>
           <p>＜コメント投稿フォーム＞ 残り<span id="txtlmt">140</span>文字</p>
           <%= f.text_area :comment, id: 'count-down', class: 'comment-input', placeholder: "コメントする", maxlength: "140" %>

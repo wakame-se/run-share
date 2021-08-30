@@ -6,18 +6,18 @@ class User < ApplicationRecord
 
   with_options presence: true do
     validates :nickname
-    with_options format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: 'is invalid. Input full-width characters.' } do
+    with_options format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: 'は全角文字で入力してください' } do
       validates :last_name
       validates :first_name
     end
-    with_options format: { with: /\A[ァ-ヶー]+\z/, message: 'is invalid. Input full-width katakana characters.' } do
+    with_options format: { with: /\A[ァ-ヶー]+\z/, message: 'は全角カナ文字で入力してください' } do
       validates :last_name_reading
       validates :first_name_reading
     end
     validates :birthday
   end
   validates :password,
-            format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: 'is invalid. Input half-width characters.' }
+            format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: 'は半角英数字混合で入力してください' }
 
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
