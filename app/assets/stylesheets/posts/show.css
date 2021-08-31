@@ -5,46 +5,34 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10vh 0;
-}
-
-.show-map-contents>.title {
-  font-size: 5vh;
-  font-weight: bold;
-  text-align: center;
 }
 
 .show-map-info {
   width: 50vw;
-  background-color: #FFF;
+  background: linear-gradient(to bottom, #f0fff0, white);
   color: black;
-  border: 1px solid #3ccace;
-  padding: 1vh 1vw;
-  margin: 1vh 1vw;
+  border: 1px solid limegreen;
+  padding: 13vh 2vw 2vh;
+}
+
+.show-map-contents>.show-map-info>.subtitle {
+  font-size: 24px;
+  color: limegreen;
+  border-bottom: 1px solid limegreen;
+  font-weight: bold;
+  text-align: center;
+}
+
+.show-user-name {
   position: relative;  /* 3点リーダー用 */
-}
-
-.show-image {
-  height: 0;
-  overflow: hidden;
-  padding-bottom: 75%;
-  background-color: #f2f2f2;
-  position: relative;
-}
-
-.show-post-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  margin: auto;
-  height: 100%;
-  width: auto;
+  font-size: 3vh;
+  margin-top: 1vh;
 }
 
 .show-map-name {
   font-size: 3vh;
+  text-decoration: underline;
+  margin-top: 1vh;
 }
 
 .show-map-distance {
@@ -57,6 +45,24 @@
   border: 1px solid lightgray;
   width: 100%;
   margin: 3vh 0;
+}
+
+.show-list-head {
+  border: 1px solid lightgray;
+  padding: 0.3em;
+  width: 50%;
+  background-color: gray;
+  color: #fff;
+  text-align: center;
+}
+
+.answer-head {
+  border: 1px solid lightgray;
+  padding: 0.3em;
+  width: 50%;
+  background-color: gray;
+  color: #fff;
+  text-align: center;
 }
 
 .show-list {
@@ -80,7 +86,8 @@
   font-size: 2.5vh;
   padding: 2em 0.5em 1em;
   margin: 0.5em 0;
-  border: solid 1px #FFC107;
+  border: solid 1px lightgray;
+  background-color: #fffff0;
   position: relative;
 }
 
@@ -91,7 +98,7 @@
   left: -1px;
   font-size: 2.5vh;
   padding: 0 0.5em;
-  background: #FFC107;
+  background: gray;
   color: #ffffff;
   font-weight: bold;
 }
@@ -102,3 +109,54 @@
 }
 
 /* //投稿詳細 */
+
+/* コメントフォーム */
+
+.comment-container {
+  width: 50vw;
+  background: linear-gradient(to bottom, #f0fff0, white);
+  color: black;
+  border-left: 1px solid limegreen;
+  border-right: 1px solid limegreen;
+  padding: 3vh 1vw 13vh;
+}
+
+.comment-input {
+  width: 100%;
+  margin: 1vh 0;
+  padding: 0.4em;
+}
+
+.comment-btn-contents {
+  text-align: right;
+}
+
+.comment-btn {
+  width: 10%;
+  padding: 0.1em;
+  cursor: pointer;
+}
+
+.comment-container>p {
+  color: red;
+  text-align: center;
+}
+
+.comments {
+  margin-top: 1vh;
+}
+
+.comment-created-at {
+  font-size: 0.8em;
+  color: gray;
+  margin-left: 1vw;
+}
+
+.comments-contents {
+  padding: 0.5em;
+  margin: 0.5em 0;
+  border: solid 1px lightgray;
+  background-color: #fffff0;
+}
+
+/* //コメントフォーム */

@@ -1,21 +1,19 @@
 <%= render "shared/header" %>
 
 <div class='show-map-contents'>
-  <div class="title" >
-    投稿詳細
-  </div>
   <div class='show-map-info'>
+    <div class="subtitle" >
+      投稿詳細
+    </div>
     <div class="show-user-name">
       <%= link_to user_path(@post.user.id) do %>
         <span><%= @post.user.nickname %></span>
       <% end %>
+      <%= render "shared/second-leader", post: @post %>
     </div>
-
-    <%= render "shared/second-leader", post: @post %>
-
-    <div class='show-image'>
-      <%= image_tag @post.image, class: 'show-post-image' if @post.image.attached? %>
-      <%= image_tag 'noimage.png', class: 'show-post-image' unless @post.image.attached? %>
+    <div class='back-image'>
+      <%= image_tag @post.image, class: 'post-image' if @post.image.attached? %>
+      <%= image_tag 'noimage.png', class: 'post-image' unless @post.image.attached? %>
     </div>
 
     <div id="likes-<%= @post.id %>">
@@ -29,6 +27,10 @@
       <span>コース距離：約<%= @post.distance %>km</span>
     </div>
     <table class='show-lists'>
+      <tr>
+        <th class='show-list-head'>コースの種類</th>
+        <th class='answer-head'>回答</th>
+      </tr>
       <tr>
         <td class='show-list'>山コース？ 海コース？</td>
         <td class='answer'><%= @post.course %></td>
@@ -53,6 +55,37 @@
     <div class='show-map-comment'>
       <span class="box-title">コメント</span>
       <span><%= @post.comment %></span>
+    </div>
+  </div>
+  <div class="comment-container">
+    <% if user_signed_in? %>
+      <%= form_with model: [@post, @comment], class: 'comment-form', local: true do |f| %>
+        <%= render 'shared/error_messages', model: f.object %>
+        <div class='comment-contents'>
+          <p>＜コメント投稿フォーム＞ 残り<span id="txtlmt">140</span>文字</p>
+          <%= f.text_area :comment, id: 'count-down', class: 'comment-input', placeholder: "コメントする", maxlength: "140" %>
+        </div>
+        <div class='comment-btn-contents'>
+          <%= f.submit "送信", class: 'comment-btn' %></p>
+        </div>
+      <% end %>
+    <% else %>
+      <p><strong>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</strong></p>
+    <% end %>
+    <div class="comments">
+      <p>＜コメント一覧＞</p>
+      <% @comments.each do |comment| %>
+        <div class='comments-contents'>
+          <div class='comment-header'>
+            <%= link_to comment.user.nickname, user_path(comment.user.id) %>
+            <span class='comment-created-at'><%= l comment.created_at %></span>
+          </div>
+          <%= comment.comment %>
+          <% if (user_signed_in? && @post.user.id) || (user_signed_in? && comment.user.id == current_user.id) %>
+            [<%= link_to "削除", post_comment_path(post_id: @post.id, id: comment.id), method: :delete, data: {confirm: "コメントを削除してもよろしいですか？"} %>]
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

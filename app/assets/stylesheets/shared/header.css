@@ -4,10 +4,12 @@
 
 .top-page-header {
   width: 100vw;
-  background-color: rgba(0, 0, 0);
+  background-color: #fff;
+  color: black;
   position: fixed;
   top: 0;
   z-index: 10;
+  border-bottom: 3px double lightgray;
 }
 
 .nav {
@@ -36,7 +38,7 @@
 
 .user-nickname {
   text-decoration: none;
-  color: white;
+  color: black;
   padding: 0 2vw;
   font-weight: bold;
   cursor: pointer;
@@ -44,25 +46,25 @@
 
 .new-post {
   text-decoration: none;
-  color: white;
+  color: black;
   padding: 0 2vw;
 }
 
 .logout {
   text-decoration: none;
-  color: white;
+  color: black;
   padding-left: 2vw;
 }
 
 .login {
   text-decoration: none;
-  color: white;
+  color: black;
   padding: 0 2vw;
 }
 
 .sign-up {
   text-decoration: none;
-  color: white;
+  color: black;
   padding-left: 2vw;
 }
 

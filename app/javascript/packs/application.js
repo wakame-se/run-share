@@ -10,6 +10,7 @@ require("channels")
 require('jquery')
 require("../header")
 require("../leader")
+require("../comment_limit")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
