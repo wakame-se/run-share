@@ -1,0 +1,93 @@
+.top-container {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('/images/running_top.jpg');
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+  z-index: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.top-container:before {
+  content: '';
+  background: inherit;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(10px);
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
+}
+
+.top-container>h1 {
+  font-size: 10vh;
+  padding: 10vh 0 0;
+}
+
+.top-container>h2 {
+  font-size: 8vh;
+  padding: 0 0 8vh;
+}
+
+.top-container>h3 {
+  font-size: 6vh;
+}
+
+.top-container>p {
+  font-size: 4vh;
+  padding: 3vh 0 1vh;
+}
+
+.top-btn {
+  font-size: 1.6rem;
+  font-weight: bold;
+  line-height: 1.5;
+  display: inline-block;
+  padding: 0.5rem 2rem;
+  cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 0.3rem;
+  position: relative;
+}
+
+.top-btn:active {
+  top: 0.2rem;
+  box-shadow: none;
+}
+
+.top-index {
+  background-color: #ff6347;
+  box-shadow: 0 0.2rem #800000;
+}
+
+.down-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.top-sign-up {
+  background-color: #32cd32;
+  box-shadow: 0 0.2rem #006400;
+  margin-right: 3vw;
+}
+
+.top-login {
+  background-color: #1e90ff;
+  box-shadow: 0 0.2rem #00008b;
+}

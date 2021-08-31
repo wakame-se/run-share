@@ -1,8 +1,11 @@
 class PostsController < ApplicationController
   before_action :post_find, only: %i[show edit update destroy]
-  before_action :authenticate_user!, except: %i[index show search]
+  before_action :authenticate_user!, except: %i[top index show search]
   before_action :move_to_index, only: %i[edit update destroy]
   before_action :set_search, only: :index
+
+  def top
+  end
 
   def index
     @posts = @q.result(distinct: true).includes(:user).page(params[:page]).per(5)
@@ -15,7 +18,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to root_path
+      redirect_to posts_path
     else
       render :new
     end
@@ -48,7 +51,7 @@ class PostsController < ApplicationController
   end
 
   def move_to_index
-    redirect_to root_path if current_user.id != @post.user.id
+    redirect_to posts_path if current_user.id != @post.user.id
   end
 
   def post_params

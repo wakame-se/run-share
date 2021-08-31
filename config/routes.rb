@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'posts#index'
-  resources :posts, except: :index do
+  root to: 'posts#top'
+  resources :posts do
     resource :likes, only: %i[create destroy]
     resources :comments, only: %i[create destroy]
   end

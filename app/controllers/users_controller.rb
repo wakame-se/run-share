@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   end
 
   def move_to_index
-    redirect_to root_path if current_user.id != @user.id
+    redirect_to posts_path if current_user.id != @user.id
   end
 
   def user_params
