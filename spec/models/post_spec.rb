@@ -17,7 +17,7 @@ RSpec.describe Post, type: :model do
       it 'map_linkが空では登録できないこと' do
         @post.map_link = ''
         @post.valid?
-        expect(@post.errors.full_messages).to include("Map共有リンクを入力してください")
+        expect(@post.errors.full_messages).to include('Map共有リンクを入力してください')
       end
 
       it 'map_linkはhttpもしくはhttpsで始まるURLでしか登録できないこと' do
@@ -29,7 +29,7 @@ RSpec.describe Post, type: :model do
       it 'distanceが空では登録できないこと' do
         @post.distance = ''
         @post.valid?
-        expect(@post.errors.full_messages).to include("距離を入力してください")
+        expect(@post.errors.full_messages).to include('距離を入力してください')
       end
 
       it 'distanceが0km以下の場合は保存できないこと' do
@@ -59,37 +59,37 @@ RSpec.describe Post, type: :model do
       it 'courseが空では登録できないこと' do
         @post.course = ''
         @post.valid?
-        expect(@post.errors.full_messages).to include("山コース or 海コースを入力してください")
+        expect(@post.errors.full_messages).to include('山コース or 海コースを入力してください')
       end
 
       it 'slopeが空では登録できないこと' do
         @post.slope = ''
         @post.valid?
-        expect(@post.errors.full_messages).to include("坂の多さを入力してください")
+        expect(@post.errors.full_messages).to include('坂の多さを入力してください')
       end
 
       it 'trafficが空では登録できないこと' do
         @post.traffic = ''
         @post.valid?
-        expect(@post.errors.full_messages).to include("交通量を入力してください")
+        expect(@post.errors.full_messages).to include('交通量を入力してください')
       end
 
       it 'crowdが空では登録できないこと' do
         @post.crowd = ''
         @post.valid?
-        expect(@post.errors.full_messages).to include("人混みを入力してください")
+        expect(@post.errors.full_messages).to include('人混みを入力してください')
       end
 
       it 'viewが空では登録できないこと' do
         @post.view = ''
         @post.valid?
-        expect(@post.errors.full_messages).to include("景色を入力してください")
+        expect(@post.errors.full_messages).to include('景色を入力してください')
       end
 
       it 'commentが空では登録できないこと' do
         @post.comment = ''
         @post.valid?
-        expect(@post.errors.full_messages).to include("コメントを入力してください")
+        expect(@post.errors.full_messages).to include('コメントを入力してください')
       end
 
       it 'userが紐付いていないと保存できないこと' do

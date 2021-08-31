@@ -1,0 +1,14 @@
+<div class="top-container">
+  <h1>RunShare</h1>
+  <h2>〜ランニングコース共有アプリ〜</h2>
+  <h3>毎回同じコースばかりで飽きているそこのあなた</h3>
+  <p>新たなコースを探してみたい方はこちらをクリック！</p>
+  <ul class="up-btn">
+    <li><%= link_to 'コースを探す', posts_path,  class: "top-index top-btn" %></li>
+  </ul>
+  <p>新規登録/ログインはこちら</p>
+  <ul class="down-btn">
+    <li><%= link_to '新規登録', new_user_registration_path, class: "top-sign-up top-btn" %></li>
+    <li><%= link_to 'ログイン', new_user_session_path, class: "top-login top-btn" %></li>
+  </ul>
+</div>
