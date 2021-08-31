@@ -4,8 +4,7 @@ class PostsController < ApplicationController
   before_action :move_to_index, only: %i[edit update destroy]
   before_action :set_search, only: :index
 
-  def top
-  end
+  def top; end
 
   def index
     @posts = @q.result(distinct: true).includes(:user).page(params[:page]).per(5)
