@@ -84,6 +84,7 @@
 - belongs_to :user
 - has_many :comments
 - has_many :likes
+- has_one :address
 
 ### commentsテーブル
 | Column  | Type       | Options                        |
@@ -104,4 +105,16 @@
 
 #### Association
 - belongs_to :user
+- belongs_to :post
+
+### addressesテーブル
+| Column          | Type       | Options                        |
+| --------------- | ---------- | ------------------------------ |
+| postal_code     | integer    | null: false                    |
+| prefecture_code | integer    | null: false                    |
+| city            | string     | null: false                    |
+| street          | string     | null: false                    |
+| post            | references | null: false, foreign_key: true |
+
+#### Association
 - belongs_to :post
