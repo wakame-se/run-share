@@ -11,12 +11,13 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post_address = PostAddress.new
   end
 
   def create
-    @post = Post.new(post_params)
-    if @post.save
+    @post_address = PostAddress.new(post_params)
+    if @post_address.valid?
+      @post_address.save
       redirect_to posts_path
     else
       render :new
@@ -54,8 +55,8 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:map_link, :distance, :course, :slope, :traffic, :crowd, :view,
-                                 :comment, :image).merge(user_id: current_user.id)
+    params.require(:post_address).permit(:map_link, :distance, :course, :slope, :traffic, :crowd, :view,
+                                 :comment, :image, :postal_code, :prefecture_code, :city, :street).merge(user_id: current_user.id)
   end
 
   def set_search
