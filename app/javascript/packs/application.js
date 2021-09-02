@@ -11,6 +11,7 @@ require('jquery')
 require("../header")
 require("../leader")
 require("../comment_limit")
+require("../address_autofill")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
