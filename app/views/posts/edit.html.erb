@@ -4,7 +4,7 @@
 
   <div class="new-map-main">
     <h2 class="new-map-title">投稿編集</h2>
-    <%= form_with model: @post, local: true do |f| %>
+    <%= form_with model: @post_address, url: post_path(@post.id), method: :patch, local: true do |f| %>
 
     <%= render 'shared/error_messages', model: f.object %>
 
@@ -18,11 +18,31 @@
         <span class="indispensable">必須</span>
       </div>
       <%= f.text_field :map_link, class:"map-text", id:"map-link", placeholder:"共有リンク", maxlength:"200" %>
-      <div class="weight-bold-text">
+      <%# <div class="weight-bold-text">
         コース画像
         <span class="optional">任意</span>
       </div>
       <%= f.file_field :image, class:"map-image", id:"map-image" %>
+      <div class="weight-bold-text">
+        郵便番号（ハイフンなし）
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_field :postal_code, autocomplete: 'postal_code', class:"form-control", id: 'postal_code' %>
+      <div class="weight-bold-text">
+        都道府県
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name, { prompt: '選択してください' }, class: 'form-control', id: 'prefecture_code' %>
+      <div class="weight-bold-text">
+        市区町村
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_field :city, autocomplete: 'city', class:"form-control", id: 'city' %>
+      <div class="weight-bold-text">
+        番地
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_field :street, autocomplete: 'street', class:"form-control", id: 'street' %>
       <div class="weight-bold-text">
         <span>距離</span>
         <span class="indispensable">必須</span>

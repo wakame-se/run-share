@@ -29,10 +29,14 @@ class PostsController < ApplicationController
     @comments = @post.comments.includes(:user)
   end
 
-  def edit; end
+  def edit
+    @post_address = PostAddress.new(id: params[:id])
+  end
 
   def update
-    if @post.update(post_params)
+    @post_address = PostAddress.new(post_params.merge(id: params[:id]))
+    if @post_address.valid?
+      @post_address.update
       redirect_to post_path(@post.id)
     else
       render :edit
@@ -55,8 +59,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post_address).permit(:map_link, :distance, :course, :slope, :traffic, :crowd, :view,
-                                 :comment, :image, :postal_code, :prefecture_code, :city, :street).merge(user_id: current_user.id)
+    params.require(:post_address).permit(:map_link, :image, :distance, :course, :slope, :traffic, :crowd, :view, :comment, :postal_code, :prefecture_code, :city, :street).merge(user_id: current_user.id)
   end
 
   def set_search
