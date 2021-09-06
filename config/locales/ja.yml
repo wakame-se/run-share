@@ -26,6 +26,21 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+  activemodel:
+    attributes:
+      post_address:
+        map_link: Map共有リンク
+        postal_code: 郵便番号
+        prefecture_code: 都道府県
+        city: 市区町村
+        street: 番地
+        distance: 距離
+        course: 山コース or 海コース
+        slope: 坂の多さ
+        traffic: 交通量
+        crowd: 人混み
+        view: 景色
+        comment: コメント
   date:
     abbr_day_names:
     - 日
