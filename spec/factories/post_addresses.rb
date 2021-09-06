@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :post_address do
     map_link { Faker::Internet.url(scheme: 'https') }
-    postal_code { 6580084 }
+    postal_code { 6_580_084 }
     prefecture_code { '兵庫県' }
     city { '神戸市東灘区' }
     street { '甲南町' }
