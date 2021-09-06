@@ -6,7 +6,7 @@ class PostAddress
     validates :map_link,
               format: { with: /\A#{URI::DEFAULT_PARSER.make_regexp(%w[http https])}\z/,
                         message: 'はhttpもしくはhttpsで始まるURLで入力してください' }
-    validates :postal_code, format: { with: /\A[0-9]{7}\z/ }
+    validates :postal_code, format: { with: /\A[0-9]{7}\z/, message: 'は数値のみで入力してください' }
     validates :prefecture_code
     validates :city
     validates :street
