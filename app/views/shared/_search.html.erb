@@ -1,13 +1,36 @@
 <div class="search-contents">
   <div class="side-title" >
-    [検索]
+    [検索フォーム]
   </div>
 
   <%= search_form_for @q, url: posts_path, class: "search-form" do |f| %>
 
+    <div class="search-btn-contents">
+      <%= f.submit "検索", class: "search-btn" %>
+    </div>
+
     <div class="sort-menu">
       <p class="search-box-title">並べ替え</p>
       <%= f.select(:sorts, {'投稿が新しい順': 'created_at desc', '投稿が古い順': 'created_at asc', '距離が長い順': 'distance desc', '距離が短い順': 'distance asc', '人気順': 'likes_count desc'}, { selected: params[:q][:sorts] }, class: "sort-input") %>
+    </div>
+
+    <div class="address-boxes">
+      <div class="address-box">
+        <p>郵便番号（ハイフンなし）</p>
+        <p><%= f.text_field :address_postal_code_eq, placeholder: "郵便番号", autocomplete: 'postal_code', class:"search-control", id: 'postal_code' %></p>
+      </div>
+      <div class="address-box">
+        <p>都道府県</p>
+        <p><%= f.collection_select :address_prefecture_code_eq, JpPrefecture::Prefecture.all, :name, :name, { prompt: '選択してください' }, class: 'search-sort', id: 'prefecture_code' %></p>
+      </div>
+      <div class="address-box">
+        <p>市区町村</p>
+        <p><%= f.text_field :address_city_cont, placeholder: "市区町村", autocomplete: 'city', class:"search-control", id: 'city' %></p>
+      </div>
+      <div class="address-box">
+        <p>番地</p>
+        <p><%= f.text_field :address_street_cont, placeholder: "番地", autocomplete: 'street', class:"search-control", id: 'street' %></p>
+      </div>
     </div>
 
     <div class="distances">
