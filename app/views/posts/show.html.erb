@@ -23,8 +23,11 @@
     <div class='show-map-name'>
       <%= link_to "このコースのマップを見る", @post.map_link, target: :_blank, rel: "noopener noreferrer" %>
     </div>
+    <div class='show-map-address'>
+      <span><%= @post.address.prefecture_code %><%= @post.address.city %></span>
+    </div>
     <div class='show-map-distance'>
-      <span>コース距離：約<%= @post.distance %>km</span>
+      <span>コースの長さ：約<%= @post.distance %>km</span>
     </div>
     <table class='show-lists'>
       <tr>
