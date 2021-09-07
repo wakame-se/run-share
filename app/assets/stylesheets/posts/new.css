@@ -54,6 +54,16 @@
   resize: none;
 }
 
+.form-control {
+  width: 20vw;
+  height: 5vh;
+  padding-left: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  resize: none;
+}
+
 .distance-input {
   height: 5vh;
   text-align: right;

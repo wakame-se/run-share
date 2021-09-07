@@ -14,18 +14,49 @@
   font-size: 24px;
 }
 
+.search-btn-contents {
+  margin-top: 3vh;
+  text-align: center;
+}
+
+.search-btn {
+  width: 5vw;
+  cursor: pointer;
+}
+
 .sort-menu {
-  margin-top: 2vh;
+  margin-top: 3vh;
 }
 
 .sort-input {
-  padding: 0.5em 2em 0.5em 0.5em;
-  margin-top: 0.5vh;
+  width: 15vw;
+  padding: 0.5em 0 0.5em 0.5em;
+  cursor: pointer;
+}
+
+.address-boxes {
+  margin-top: 2vh;
+}
+
+.address-box {
+  padding-top: 1vh;
+}
+
+.search-control {
+  width: 14vw;
+  padding-left: 0.5em;
+  margin-right: 1vw;
+  resize: none;
+}
+
+.search-sort {
+  width: 14vw;
+  padding: 0.25em 0 0.25em 0.5em;
   cursor: pointer;
 }
 
 .distances {
-  margin-top: 2vh;
+  margin-top: 3vh;
 }
 
 .distance-search {
@@ -37,31 +68,24 @@
   resize: none;
 }
 
+.check-boxes {
+  margin-top: 1vh;
+}
+
 .check-box {
   padding-left: 1vw;
 }
 
 .check-box>p {
-  margin-top: 2vh;
+  padding-top: 2vh;
 }
 
 .keywords {
-  margin-top: 2vh;
+  margin-top: 3vh;
 }
 
 .search-input {
   width: 15vw;
   padding-left: 0.5em;
-  margin-right: 1vw;
   resize: none;
-}
-
-.search-btn-contents {
-  margin-top: 2vh;
-  text-align: center;
-}
-
-.search-btn {
-  width: 5vw;
-  cursor: pointer;
 }

@@ -27,7 +27,7 @@
         郵便番号（ハイフンなし）
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_field :postal_code, autocomplete: 'postal_code', class:"form-control", id: 'postal_code' %>
+      <%= f.text_field :postal_code, autocomplete: 'postal_code', class:"form-control", id: 'postal_code', placeholder:"郵便番号" %>
       <div class="weight-bold-text">
         都道府県
         <span class="indispensable">必須</span>
@@ -37,12 +37,12 @@
         市区町村
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_field :city, autocomplete: 'city', class:"form-control", id: 'city' %>
+      <%= f.text_field :city, autocomplete: 'city', class:"form-control", id: 'city', placeholder:"市区町村" %>
       <div class="weight-bold-text">
         番地
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_field :street, autocomplete: 'street', class:"form-control", id: 'street' %>
+      <%= f.text_field :street, autocomplete: 'street', class:"form-control", id: 'street', placeholder:"番地" %>
       <div class="weight-bold-text">
         <span>距離</span>
         <span class="indispensable">必須</span>

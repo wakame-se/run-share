@@ -116,7 +116,7 @@ class PostAddress
   end
 
   def update
-    @post.update(map_link: map_link, image: image, distance: distance, course: course, slope: slope, traffic: traffic,
+    @post.update(map_link: map_link, distance: distance, course: course, slope: slope, traffic: traffic,
                  crowd: crowd, view: view, comment: comment, user_id: user_id)
     @address.update(postal_code: postal_code, prefecture_code: prefecture_code, city: city, street: street)
   end
