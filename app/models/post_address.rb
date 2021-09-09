@@ -66,10 +66,10 @@ class PostAddress
                        attribute[:comment]
                      end
       self.images = if !(self.images = attribute[images: []])
-                     @post.images
-                   else
-                     attribute[images: []]
-                   end
+                      @post.images
+                    else
+                      attribute[images: []]
+                    end
       self.user_id = if !(self.user_id = attribute[:user_id])
                        @post.user_id
                      else
