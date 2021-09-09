@@ -59,7 +59,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post_address).permit(:map_link, {images: []}, :distance, :course, :slope, :traffic, :crowd, :view,
+    params.require(:post_address).permit(:map_link, { images: [] }, :distance, :course, :slope, :traffic, :crowd, :view,
                                          :comment, :postal_code, :prefecture_code, :city, :street).merge(user_id: current_user.id)
   end
 
