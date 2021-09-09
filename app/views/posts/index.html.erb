@@ -7,8 +7,11 @@
     <div class="subtitle" >
       投稿一覧
     </div>
-    <div class='pagination'>
+    <div class='pagination-contents'>
       <%= paginate @posts %>
+      <span class='page-length'>
+        <%= @posts.total_count %>件中<%= @posts.offset_value + 1 %>〜<%= @posts.offset_value + @posts.length %>件表示
+      </span>
     </div>
     <ul class='map-lists'>
       <% @posts.each do |post| %>
@@ -21,10 +24,7 @@
               <% end %>
               <%= render "shared/leader", post: post %>
             </div>
-            <div class='back-image'>
-              <%= image_tag post.image, class: 'post-image' if post.image.attached? %>
-              <%= image_tag 'noimage.png', class: 'post-image' unless post.image.attached? %>
-            </div>
+            <%= render "shared/swiper", post: post %>
             <div id="likes-<%= post.id %>">
               <%= render "shared/like", post: post %>
             </div>
@@ -48,8 +48,11 @@
       </li>
       <% end %>
     </ul>
-    <div class='pagination'>
+    <div class='pagination-contents'>
       <%= paginate @posts %>
+      <span class='page-length'>
+        <%= @posts.total_count %>件中<%= @posts.offset_value + 1 %>〜<%= @posts.offset_value + @posts.length %>件表示
+      </span>
     </div>
   </div>
 </div>

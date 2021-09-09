@@ -1,0 +1,24 @@
+<% if post.images.length > 1 %>
+  <div class='swiper'>
+    <div class="swiper-wrapper">
+      <% post.images.each do |image| %>
+        <div class="swiper-slide">
+          <%= image_tag image, class: 'swiper-image' if post.images.attached? %>
+        </div>
+      <% end %>
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+<% elsif post.images.length == 1 %>
+  <div class='back-image'>
+    <% post.images.each do |image| %>
+      <%= image_tag image, class: 'post-image' if post.images.attached? %>
+    <% end %>
+  </div>
+<% else %>
+  <div class='back-image'>
+    <%= image_tag 'noimage.png', class: 'post-image' unless post.images.attached? %>
+  </div>
+<% end %>

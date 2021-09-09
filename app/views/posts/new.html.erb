@@ -22,7 +22,7 @@
         コース画像
         <span class="optional">任意</span>
       </div>
-      <%= f.file_field :image, class:"map-image", id:"map-image" %>
+      <%= f.file_field :images, multiple: true, class:"map-image", id:"map-image" %>
       <div class="weight-bold-text">
         郵便番号（ハイフンなし）
         <span class="indispensable">必須</span>

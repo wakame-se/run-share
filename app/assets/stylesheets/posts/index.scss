@@ -19,8 +19,10 @@
   font-weight: bold;
 }
 
-.index-map-contents>.pagination {
+.index-map-contents>.pagination-contents {
   margin-top: 2vh;
+  display: flex;
+  justify-content: space-between;
 }
 
 .map-lists {
