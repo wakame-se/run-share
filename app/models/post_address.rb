@@ -1,6 +1,6 @@
 class PostAddress
   include ActiveModel::Model
-  attr_accessor :map_link, :distance, :course, :slope, :traffic, :crowd, :view, :comment, :image, :user_id,
+  attr_accessor :map_link, :distance, :course, :slope, :traffic, :crowd, :view, :comment, :images, :user_id,
                 :postal_code, :prefecture_code, :city, :street
 
   with_options presence: true do
@@ -65,10 +65,10 @@ class PostAddress
                      else
                        attribute[:comment]
                      end
-      self.image = if !(self.image = attribute[:image])
-                     @post.image
+      self.images = if !(self.images = attribute[images: []])
+                     @post.images
                    else
-                     attribute[:image]
+                     attribute[images: []]
                    end
       self.user_id = if !(self.user_id = attribute[:user_id])
                        @post.user_id
@@ -110,7 +110,7 @@ class PostAddress
 
   def save
     post = Post.create(map_link: map_link, distance: distance, course: course, slope: slope, traffic: traffic,
-                       crowd: crowd, view: view, comment: comment, image: image, user_id: user_id)
+                       crowd: crowd, view: view, comment: comment, images: images, user_id: user_id)
     Address.create(postal_code: postal_code, prefecture_code: prefecture_code, city: city, street: street,
                    post_id: post.id)
   end

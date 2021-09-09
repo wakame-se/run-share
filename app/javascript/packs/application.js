@@ -12,6 +12,7 @@ require("../header")
 require("../leader")
 require("../comment_limit")
 require("../address_autofill")
+require("../swiper")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -20,3 +21,5 @@ require("../address_autofill")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+//= require swiper/swiper-bundle.js
