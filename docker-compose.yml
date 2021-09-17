@@ -4,9 +4,12 @@ services:
   web:
     build:
       context: ./nginx_docker
+    environment:
+      - EIP=${EIP}
     volumes:
       - public-data:/run-share/public
       - tmp-data:/run-share/tmp
+      - ./templates:/etc/nginx/templates
     ports:
       - 80:80
     depends_on:
@@ -24,6 +27,8 @@ services:
       - public-data:/run-share/public
       - tmp-data:/run-share/tmp
       - log-data:/run-share/log
+    ports:
+      - "3000:3000"
     depends_on:
       - db
     tty: true
