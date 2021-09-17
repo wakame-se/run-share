@@ -4,9 +4,12 @@ services:
   web:
     build:
       context: ./nginx_docker
+    environment:
+      - EIP=${EIP}
     volumes:
       - public-data:/run-share/public
       - tmp-data:/run-share/tmp
+      - ./templates:/etc/nginx/templates
     ports:
       - 80:80
     depends_on:
@@ -14,7 +17,12 @@ services:
   # Railsコンテナ定義
   app:
     build: .
-    command: bundle exec puma -C config/puma.rb
+# =========ローカルと本番切り替え===========
+    # 本番用
+    command: bundle exec puma -C config/puma.rb -e production
+    # 開発用
+    # command: bundle exec puma -C config/puma.rb
+# ======================================
     environment:
       - MYSQL_HOST=${MYSQL_HOST}
       - MYSQL_USERNAME=${MYSQL_USERNAME}
@@ -24,20 +32,24 @@ services:
       - public-data:/run-share/public
       - tmp-data:/run-share/tmp
       - log-data:/run-share/log
-    depends_on:
-      - db
+    ports:
+      - "3000:3000"
     tty: true
     stdin_open: true
-  # MySQLコンテナ定義
-  db:
-    image: mysql:5.6.51
-    environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-    ports:
-      - "4306:3306"
-    volumes:
-      - mysql-data:/var/lib/mysql
+# =========ローカルと本番切り替え===========
+  #   depends_on:
+  #     - db
+  # # MySQLコンテナ定義
+  # db:
+  #   image: mysql:5.6.51
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+  #     MYSQL_DATABASE: ${MYSQL_DATABASE}
+  #   ports:
+  #     - "4306:3306"
+  #   volumes:
+  #     - mysql-data:/var/lib/mysql
+# ======================================
 volumes:
   public-data:
   tmp-data:
