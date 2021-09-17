@@ -5,8 +5,8 @@ services:
     build:
       context: ./nginx_docker
     volumes:
-      - public-data:/myapp/public
-      - tmp-data:/myapp/tmp
+      - public-data:/run-share/public
+      - tmp-data:/run-share/tmp
     ports:
       - 80:80
     depends_on:
@@ -16,14 +16,14 @@ services:
     build: .
     command: bundle exec puma -C config/puma.rb
     environment:
-      - MYSQL_HOST=db
-      - MYSQL_USERNAME=root
+      - MYSQL_HOST=${MYSQL_HOST}
+      - MYSQL_USERNAME=${MYSQL_USERNAME}
       - MYSQL_PASSWORD=${MYSQL_ROOT_PASSWORD}
     volumes:
       - .:/run-share
-      - public-data:/myapp/public
-      - tmp-data:/myapp/tmp
-      - log-data:/myapp/log
+      - public-data:/run-share/public
+      - tmp-data:/run-share/tmp
+      - log-data:/run-share/log
     depends_on:
       - db
     tty: true
@@ -33,7 +33,7 @@ services:
     image: mysql:5.6.51
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: root
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
     ports:
       - "4306:3306"
     volumes:
