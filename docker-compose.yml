@@ -4,8 +4,6 @@ services:
   web:
     build:
       context: ./nginx_docker
-    environment:
-      - EIP=${EIP}
     volumes:
       - public-data:/run-share/public
       - tmp-data:/run-share/tmp
