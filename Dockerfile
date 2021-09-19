@@ -13,5 +13,6 @@ COPY Gemfile.lock /run-share/Gemfile.lock
 RUN gem install bundler
 RUN bundle install
 COPY . /run-share
-RUN mkdir -p tmp/sockets
-RUN mkdir -p tmp/pids
+RUN mkdir -p /run-share/tmp/sockets
+RUN mkdir -p /run-share/tmp/pids
+RUN touch /run-share/tmp/sockets/puma.sock
