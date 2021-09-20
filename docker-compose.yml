@@ -17,9 +17,9 @@ services:
     build: .
 # =========ローカルと本番切り替え===========
     # 本番用
-    # command: bundle exec puma -C config/puma.rb -e production
+    command: bundle exec puma -C config/puma.rb -e production
     # 開発用
-    command: bundle exec puma -C config/puma.rb
+    # command: bundle exec puma -C config/puma.rb
 # ======================================
     environment:
       - MYSQL_HOST=${MYSQL_HOST}
@@ -35,21 +35,21 @@ services:
     tty: true
     stdin_open: true
 # =========ローカルと本番切り替え===========
-    depends_on:
-      - db
-  # MySQLコンテナ定義
-  db:
-    image: mysql:5.6.51
-    environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-    ports:
-      - "4306:3306"
-    volumes:
-      - mysql-data:/var/lib/mysql
+  #   depends_on:
+  #     - db
+  # # MySQLコンテナ定義
+  # db:
+  #   image: mysql:5.6.51
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+  #     MYSQL_DATABASE: ${MYSQL_DATABASE}
+  #   ports:
+  #     - "4306:3306"
+  #   volumes:
+  #     - mysql-data:/var/lib/mysql
 # ======================================
 volumes:
   public-data:
   tmp-data:
   log-data:
-  mysql-data:
+  # mysql-data: # 本番用はコメントアウト
