@@ -17,7 +17,7 @@ services:
       context: .
 # =========ローカルと本番切り替え===========
     # 本番用
-    command: bundle exec puma -C config/puma.rb -e production
+    entrypoint: bundle exec puma -C config/puma.rb -e production
     # 開発用
     # command: bundle exec puma -C config/puma.rb
 # ======================================
