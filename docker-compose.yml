@@ -7,33 +7,31 @@ services:
     volumes:
       - public-data:/run-share/public
       - tmp-data:/run-share/tmp
-      - ./templates:/etc/nginx/templates
     ports:
       - 80:80
     depends_on:
       - app
+    networks:
+      - run-share-network
   # Railsコンテナ定義
   app:
-    build: .
+    build:
+      context: .
 # =========ローカルと本番切り替え===========
     # 本番用
     command: bundle exec puma -C config/puma.rb -e production
     # 開発用
     # command: bundle exec puma -C config/puma.rb
 # ======================================
-    environment:
-      - MYSQL_HOST=${MYSQL_HOST}
-      - MYSQL_USERNAME=${MYSQL_USERNAME}
-      - MYSQL_PASSWORD=${MYSQL_ROOT_PASSWORD}
     volumes:
       - .:/run-share
       - public-data:/run-share/public
       - tmp-data:/run-share/tmp
       - log-data:/run-share/log
-    ports:
-      - "3000:3000"
     tty: true
     stdin_open: true
+    networks:
+      - run-share-network
 # =========ローカルと本番切り替え===========
   #   depends_on:
   #     - db
@@ -41,15 +39,23 @@ services:
   # db:
   #   image: mysql:5.6.51
   #   environment:
+  #     MYSQL_HOST: ${MYSQL_HOST}
+  #     MYSQL_USERNAME: ${MYSQL_USERNAME}
+  #     MYSQL_PASSWORD: ${MYSQL_ROOT_PASSWORD}
   #     MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
   #     MYSQL_DATABASE: ${MYSQL_DATABASE}
   #   ports:
   #     - "4306:3306"
   #   volumes:
   #     - mysql-data:/var/lib/mysql
+  #   networks:
+  #     - run-share-network
 # ======================================
 volumes:
   public-data:
   tmp-data:
   log-data:
   # mysql-data: # 本番用はコメントアウト
+networks:
+  run-share-network:
+    external: true

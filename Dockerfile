@@ -7,7 +7,6 @@ RUN apt-get update -qq && apt-get install -y \
     nodejs \
     yarn \
     vim
-RUN mkdir /run-share
 WORKDIR /run-share
 ADD Gemfile /run-share/Gemfile
 ADD Gemfile.lock /run-share/Gemfile.lock
