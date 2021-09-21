@@ -11,8 +11,6 @@ services:
       - 80:80
     depends_on:
       - app
-    networks:
-      - run-share-network
   # Railsコンテナ定義
   app:
     build:
@@ -30,32 +28,25 @@ services:
       - log-data:/run-share/log
     tty: true
     stdin_open: true
-    networks:
-      - run-share-network
 # =========ローカルと本番切り替え===========
-  #   depends_on:
-  #     - db
-  # # MySQLコンテナ定義
-  # db:
-  #   image: mysql:5.6.51
-  #   environment:
-  #     MYSQL_HOST: ${MYSQL_HOST}
-  #     MYSQL_USERNAME: ${MYSQL_USERNAME}
-  #     MYSQL_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-  #     MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-  #     MYSQL_DATABASE: ${MYSQL_DATABASE}
-  #   ports:
-  #     - "4306:3306"
-  #   volumes:
-  #     - mysql-data:/var/lib/mysql
-  #   networks:
-  #     - run-share-network
+    depends_on:
+      - db
+  # MySQLコンテナ定義
+  db:
+    image: mysql:5.6.51
+    environment:
+      MYSQL_HOST: ${MYSQL_HOST}
+      MYSQL_USERNAME: ${MYSQL_USERNAME}
+      MYSQL_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    ports:
+      - "4306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
 # ======================================
 volumes:
   public-data:
   tmp-data:
   log-data:
-  # mysql-data: # 本番用はコメントアウト
-networks:
-  run-share-network:
-    external: true
+  mysql-data: # 本番用はコメントアウト
