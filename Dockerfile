@@ -14,4 +14,4 @@ RUN gem install bundler
 RUN bundle install
 ADD . /run-share
 RUN mkdir -p tmp/sockets
-RUN mkdir -p tmp/pids
+CMD ["bundle", "exec", "puma", "-C", "config/puma.rb", "-e", "production"]
