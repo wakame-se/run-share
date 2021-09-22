@@ -22,6 +22,7 @@ services:
     command: bundle exec puma -C config/puma.rb
 # ======================================
     volumes:
+      - .:/run-share
       - public-data:/run-share/public
       - tmp-data:/run-share/tmp
       - log-data:/run-share/log
