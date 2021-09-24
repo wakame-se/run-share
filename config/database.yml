@@ -13,9 +13,10 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password:
+  username: <%= ENV['MYSQL_USERNAME'] || 'root' %>
+  password: <%= ENV['MYSQL_PASSWORD'] || ENV.fetch("DATABASE_PASSWORD") %>
   socket: /tmp/mysql.sock
+  host: <%= ENV['MYSQL_HOST'] || 'localhost' %>
 
 development:
   <<: *default
@@ -49,6 +50,11 @@ test:
 #
 production:
   <<: *default
-  database: run_share_production
-  username: run_share
-  password: <%= ENV['RUN_SHARE_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DB_DATABASE'] %>
+  adapter: mysql2
+  encoding: utf8
+  charset: utf8
+  collation: utf8_general_ci
+  host: <%= ENV['DB_HOST'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
