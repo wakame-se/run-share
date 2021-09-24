@@ -71,3 +71,4 @@ gem 'pry-rails'
 gem 'rails-i18n'
 gem 'ransack'
 gem 'dotenv-rails'
+gem "aws-sdk-s3", require: false
